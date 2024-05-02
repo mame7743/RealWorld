@@ -9,3 +9,9 @@
 - [Docker Desktop](https://docs.docker.com/desktop/)
 - [vscode](https://code.visualstudio.com/download)
 - [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+## Phoenix プロジェクト作成
+
+```sh
+docker-compose run --rm app mix phx.new . --app realworld
+```
