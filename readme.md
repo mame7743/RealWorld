@@ -15,3 +15,26 @@
 ```sh
 docker-compose run --rm app mix phx.new . --app realworld
 ```
+
+## データベースの作成
+
+`config/dev.exs` の中身を書き換え、PostgreSQLサーバーとの接続できるようにする。
+
+```diff
+    # Configure your database
+    config :realworld, Realworld.Repo,
+    username: "postgres",
+    password: "postgres",
+-   hostname: "localhost",
++   hostname: "db"
+    database: "realworld_dev",
+    stacktrace: true,
+    show_sensitive_data_on_connection_error: true,
+    pool_size: 10
+```
+
+下記コマンドを実行し、データベースを作成。
+
+```sh
+docker-compose run --rm app mix ecto.setup
+```
